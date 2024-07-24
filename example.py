@@ -10,5 +10,15 @@ pipeline {
                 }
             }
         }
+    stage('Hello') {
+            steps {
+                script{
+                    dir("C:\\BMSAgent\\Temp"){
+                    latest_basis_package = bat(returnStdout: true, script:'dir /b /a-d | findstr /i /v /r ".*#A.7z" || dir /b /a-d | findstr /i /r ".*#A.7z"').trim().split("\\n")[-1]
+                    println(latest_basis_package)
+                }
+            }
+                
+        }
     }
 }
