@@ -20,5 +20,12 @@ pipeline {
                 }
             }
         }
+        stage('Get Agent IP Address') {
+            steps {
+                script {
+                    sh 'python3 new.py'
+                }
+            }
+        }
     }
 }
